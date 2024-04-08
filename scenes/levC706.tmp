@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ba88yj0nfsf1i"]
+[gd_scene load_steps=10 format=3 uid="uid://ba88yj0nfsf1i"]
 
 [ext_resource type="Texture2D" uid="uid://dtsl7t5hbkeoc" path="res://assets/Backgrounds/darkPurple.png" id="1_f0evv"]
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_kx1jr"]
@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dcthxv3hp4vyp" path="res://assets/PNG/Effects/star1.png" id="4_c6fti"]
 [ext_resource type="Texture2D" uid="uid://xxkuhiw2n4kp" path="res://assets/PNG/Effects/star2.png" id="5_5x3kd"]
 [ext_resource type="Texture2D" uid="uid://h8ernv8bmgcn" path="res://assets/PNG/Effects/star3.png" id="6_fwah7"]
-[ext_resource type="PackedScene" uid="uid://dq5k46mcvsqng" path="res://scenes/ui.tscn" id="7_myh0u"]
-[ext_resource type="AudioStream" uid="uid://bfquw8rl2an4n" path="res://assets/Bonus/sfx_zap.ogg" id="8_5aj87"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6bgnj"]
 animations = [{
@@ -39,80 +37,42 @@ script = ExtResource("1_kx1jr")
 position = Vector2(579, 332.5)
 scale = Vector2(5.52344, 3.59766)
 texture = ExtResource("1_f0evv")
-metadata/_edit_lock_ = true
 
 [node name="Stars" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stars"]
 position = Vector2(270, 158)
 sprite_frames = SubResource("SpriteFrames_6bgnj")
-autoplay = "default"
-frame_progress = 0.478463
-
-[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Stars"]
-position = Vector2(270, 158)
-sprite_frames = SubResource("SpriteFrames_6bgnj")
-autoplay = "default"
-frame_progress = 0.478463
-
-[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Stars"]
-position = Vector2(270, 158)
-sprite_frames = SubResource("SpriteFrames_6bgnj")
-autoplay = "default"
-frame_progress = 0.478463
-
-[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Stars"]
-position = Vector2(270, 158)
-sprite_frames = SubResource("SpriteFrames_6bgnj")
-autoplay = "default"
-frame_progress = 0.478463
-
-[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="Stars"]
-position = Vector2(270, 158)
-sprite_frames = SubResource("SpriteFrames_6bgnj")
-autoplay = "default"
-frame_progress = 0.478463
-
-[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Stars"]
-position = Vector2(270, 158)
-sprite_frames = SubResource("SpriteFrames_6bgnj")
-autoplay = "default"
 frame_progress = 0.478463
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Stars"]
 position = Vector2(317, 516)
 sprite_frames = SubResource("SpriteFrames_6bgnj")
-autoplay = "default"
 frame_progress = 0.335272
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Stars"]
 position = Vector2(652, 132)
 sprite_frames = SubResource("SpriteFrames_6bgnj")
-autoplay = "default"
 frame_progress = 0.726613
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Stars"]
 position = Vector2(1089, 165)
 sprite_frames = SubResource("SpriteFrames_6bgnj")
-autoplay = "default"
 frame_progress = 0.681929
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Stars"]
 position = Vector2(906, 411)
 sprite_frames = SubResource("SpriteFrames_6bgnj")
-autoplay = "default"
 frame_progress = 0.956705
 
 [node name="Player" parent="." instance=ExtResource("2_48i3j")]
-position = Vector2(706, 413)
+position = Vector2(470, 340)
 speed = 450
 
 [node name="Boundary" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Boundary"]
-collision_layer = 4
+collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D"]
 position = Vector2(17, 361.5)
@@ -137,15 +97,8 @@ wait_time = 0.4
 autostart = true
 
 [node name="Meteors" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
 
 [node name="Lasers" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
-
-[node name="UI" parent="." instance=ExtResource("7_myh0u")]
-
-[node name="MeteorDestroySound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_5aj87")
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]
